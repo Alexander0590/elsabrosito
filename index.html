@@ -3,30 +3,60 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>El Sabrosito - Comida Tradicional Peruana</title>
+    <title>El Sabrosito - Gastronomía Peruana Premium</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
         :root {
             --primary-color: #e67e22;
             --secondary-color: #d35400;
+            --dark-color: #1a1a1a;
+            --light-color: #f8f9fa;
+            --accent-color: #e63946;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: #333;
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4, h5, .navbar-brand, .section-title {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
         }
         
         .hero-section {
-            background: url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center;
-            background-size: cover;
-            height: 70vh;
-            position: relative;
-        }
+            background: 
+    linear-gradient(
+        135deg, 
+        rgba(0, 0, 0, 0.8) 0%, 
+        rgba(0, 0, 0, 0.4) 50%, 
+        rgba(0, 0, 0, 0.8) 100%
+    ),
+    radial-gradient(
+        circle at 20% 30%, 
+        rgba(0, 0, 0, 0) 0%, 
+        rgba(0, 0, 0, 0.5) 100%
+    ),
+    url('img/fondo.PNG') no-repeat center center;
+background-size: cover;
+background-blend-mode: multiply;
+    min-height: 90vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
         
-        .overlay {
-            background-color: rgba(0, 0, 0, 0.6);
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+        .hero-content {
+            z-index: 2;
         }
         
         .value-icon {
@@ -36,52 +66,100 @@
         }
         
         .navbar {
-            background-color: rgba(0, 0, 0, 0.9) !important;
-            transition: all 0.3s ease;
+            background-color: var(--dark-color) !important;
+            transition: all 0.4s ease;
+            padding: 15px 0;
         }
         
-        .navbar-scrolled {
-            background-color: rgba(0, 0, 0, 0.95) !important;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+        .navbar.scrolled {
+            padding: 10px 0;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .nav-link {
+            color: white !important;
+            margin: 0 10px;
+            font-weight: 500;
+            position: relative;
+        }
+        
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: var(--primary-color);
+            bottom: 0;
+            left: 0;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover:after, .nav-link.active:after {
+            width: 100%;
         }
         
         .btn-primary {
             background-color: var(--primary-color);
             border-color: var(--primary-color);
-            transition: all 0.3s ease;
+            color: white;
+            padding: 12px 30px;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            transition: all 0.4s ease;
         }
         
         .btn-primary:hover {
             background-color: var(--secondary-color);
             border-color: var(--secondary-color);
-            transform: translateY(-2px);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(180, 140, 60, 0.2);
+        }
+        
+        .btn-outline-light {
+            padding: 12px 30px;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            transition: all 0.4s ease;
+        }
+        
+        .btn-outline-light:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(255, 255, 255, 0.1);
         }
         
         .card-hover {
-            transition: all 0.3s ease;
+            transition: all 0.4s ease;
+            border: none;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            overflow: hidden;
         }
         
         .card-hover:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
         }
         
         .section-title {
             position: relative;
-            margin-bottom: 2rem;
-            color: #333;
+            margin-bottom: 3rem;
+            color: var(--dark-color);
+            font-size: 2.5rem;
         }
         
         .section-title:after {
             content: '';
             position: absolute;
-            bottom: -10px;
+            bottom: -15px;
             left: 50%;
             transform: translateX(-50%);
             width: 80px;
             height: 3px;
             background: var(--primary-color);
-            transition: width 0.3s ease;
+            transition: all 0.4s ease;
         }
         
         .section-title:hover:after {
@@ -100,19 +178,20 @@
             border-radius: 50px;
             text-align: center;
             font-size: 30px;
-            box-shadow: 2px 2px 3px #999;
+            box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
             z-index: 100;
             display: flex;
             align-items: center;
             justify-content: center;
             animation: pulse 2s infinite;
-            transition: all 0.3s ease;
+            transition: all 0.4s ease;
         }
         
         .whatsapp-float:hover {
             background-color: #128C7E;
-            transform: scale(1.1);
+            transform: scale(1.1) translateY(-5px);
             animation: none;
+            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4);
         }
         
         /* Animación de pulso para el botón de WhatsApp */
@@ -128,41 +207,105 @@
             }
         }
         
-        /* Animaciones para las secciones */
-        .fade-in {
-            animation: fadeIn 1s ease-in;
+        /* Estilos para el menú */
+        .menu-category-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: var(--dark-color);
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 10px;
         }
         
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+        .menu-category-title:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background: var(--primary-color);
         }
         
-        /* Efecto hover para los items del menú */
+        .menu-item {
+            transition: all 0.4s ease;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
         .menu-item:hover {
-            transform: scale(1.02);
-            transition: transform 0.3s ease;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
         }
         
-        /* Animación para el hero section */
-        .hero-content {
-            animation: slideUp 1s ease-out;
+        .menu-item .card-body {
+            padding: 20px;
         }
         
-        @keyframes slideUp {
-            from { 
-                opacity: 0;
-                transform: translateY(50px);
-            }
-            to { 
-                opacity: 1;
-                transform: translateY(0);
-            }
+        .menu-item .card-title {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+            color: var(--dark-color);
+            margin-bottom: 10px;
         }
         
-        /* Efecto hover para las tarjetas de equipo */
+        .menu-item .card-text {
+            color: #666;
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+        }
+        
+        .menu-item .price {
+            font-weight: 600;
+            color: var(--primary-color);
+            font-size: 1.1rem;
+        }
+        
+        /* Botón de ver carta completa */
+        .btn-view-menu {
+            background-color: transparent;
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+            padding: 12px 30px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn-view-menu:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--primary-color);
+            transition: all 0.4s ease;
+            z-index: -1;
+        }
+        
+        .btn-view-menu:hover {
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(180, 140, 60, 0.2);
+        }
+        
+        .btn-view-menu:hover:before {
+            left: 0;
+        }
+        
+        /* Estilos para el equipo */
         .team-card {
-            transition: all 0.3s ease;
+            transition: all 0.4s ease;
+            border: none;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            overflow: hidden;
+            text-align: center;
         }
         
         .team-card:hover {
@@ -171,11 +314,225 @@
         }
         
         .team-card img {
-            transition: all 0.3s ease;
+            transition: all 0.4s ease;
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
         }
         
         .team-card:hover img {
             transform: scale(1.05);
+        }
+        
+        .team-card .card-body {
+            padding: 25px;
+        }
+        
+        .team-card .card-title {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+        
+        .team-card .position {
+            color: var(--primary-color);
+            font-weight: 500;
+            margin-bottom: 10px;
+        }
+        
+        .team-card .bio {
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        /* Sección de contacto */
+        .contact-info i {
+            color: var(--primary-color);
+            font-size: 1.2rem;
+            margin-right: 10px;
+            width: 25px;
+            text-align: center;
+        }
+        
+        .contact-info p {
+            margin-bottom: 15px;
+        }
+        
+        .form-control {
+            padding: 12px 15px;
+            border-radius: 0;
+            border: 1px solid #ddd;
+            margin-bottom: 15px;
+        }
+        
+        .form-control:focus {
+            box-shadow: none;
+            border-color: var(--primary-color);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 60px 0 20px;
+        }
+        
+        footer h5 {
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        footer h5:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background: var(--primary-color);
+        }
+        
+        footer a {
+            color: #ccc;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: block;
+            margin-bottom: 8px;
+        }
+        
+        footer a:hover {
+            color: var(--primary-color);
+            padding-left: 5px;
+        }
+        
+        .social-icons a {
+            display: inline-block;
+            margin-right: 15px;
+            font-size: 1.2rem;
+        }
+        
+        .footer-logo {
+            margin-bottom: 20px;
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 20px;
+            margin-top: 40px;
+        }
+        
+        /* Efectos especiales */
+        .hover-shadow {
+            transition: all 0.4s ease;
+        }
+        
+        .hover-shadow:hover {
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+        
+        /* Ajustes responsivos */
+        @media (max-width: 1199.98px) {
+            .hero-section {
+                min-height: 80vh;
+            }
+            
+            .section-title {
+                font-size: 2.2rem;
+            }
+        }
+        
+        @media (max-width: 991.98px) {
+            .hero-section {
+                min-height: 70vh;
+                text-align: center;
+            }
+            
+            .navbar {
+                padding: 10px 0;
+            }
+            
+            .nav-link {
+                margin: 5px 0;
+                padding: 10px 0;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .team-card img {
+                height: 250px;
+            }
+        }
+        
+        @media (max-width: 767.98px) {
+            .hero-section {
+                min-height: 60vh;
+            }
+            
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .btn-primary, .btn-outline-light, .btn-view-menu {
+                padding: 10px 20px;
+                font-size: 0.8rem;
+            }
+            
+            .menu-category-title {
+                font-size: 1.5rem;
+                margin-top: 30px;
+            }
+            
+            .whatsapp-float {
+                width: 50px;
+                height: 50px;
+                font-size: 25px;
+                bottom: 20px;
+                right: 20px;
+            }
+        }
+        
+        @media (max-width: 575.98px) {
+            .hero-section {
+                min-height: 50vh;
+            }
+            
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+            
+            .hero-content p {
+                font-size: 1rem;
+            }
+            
+            .section-title {
+                font-size: 1.6rem;
+            }
+            
+            footer {
+                padding: 40px 0 15px;
+                text-align: center;
+            }
+            
+            footer h5:after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+            
+            footer .col-md-4 {
+                margin-bottom: 30px;
+            }
+            
+            .team-card img {
+                height: 200px;
+            }
         }
     </style>
 </head>
@@ -189,15 +546,15 @@
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container">
             <a class="navbar-brand" href="#">
-                <img src="img/logo.jpg" alt="El Sabrosito" height="50">
+                <img src="img/logo.jpg" alt="El Sabrosito" height="50" width="0" class="img-fluid">
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link active" href="#">Inicio</a>
+                        <a class="nav-link" href="#inicio">Inicio</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#nosotros">Nosotros</a>
@@ -205,9 +562,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#valores">Valores</a>
                     </li>
-                    <li class="nav-item">
+                    <!-- <li class="nav-item">
                         <a class="nav-link" href="#equipo">Equipo</a>
-                    </li>
+                    </li> -->
                     <li class="nav-item">
                         <a class="nav-link" href="#menu">Menú</a>
                     </li>
@@ -220,57 +577,88 @@
     </nav>
 
     <!-- Sección Hero -->
- <!-- Sección Hero -->
-<section class="hero-section">
-    <div class="overlay d-flex align-items-center">
-        <div class="container text-white text-center hero-content">
-            <h1 class="display-3 fw-bold" data-aos="fade-up">El Sabrosito</h1>
-            <p class="lead" data-aos="fade-up" data-aos-delay="200">Descubre nuestra variada y deliciosa oferta culinaria</p>
-            <div data-aos="fade-up" data-aos-delay="400">
-                <a href="#menu" class="btn btn-primary btn-lg mt-3">Ver Menú</a>
-                <a href="#contacto" class="btn btn-outline-light btn-lg mt-3 ms-2">Reservar</a>
+    <section class="hero-section"id="inicio">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center text-white hero-content" data-aos="fade-up" data-aos-delay="200">
+                    <h1 class="display-3 fw-bold mb-4" style="color: #d35400; text-shadow: 1px 1px 0px #b34700, 2px 2px 0px #a34000, 3px 3px 0px #943a00;">El Sabrosito</h1>
+                    <p class="lead mb-5">Experiencia gastronómica peruana con auténtico sabor tradicional</p>
+                    <div>
+                        <a href="#menu" class="btn btn-primary btn-lg me-3">Ver Menú</a>
+                        <a href="#contacto" class="btn btn-outline-light btn-lg">Reservar</a>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
+
     <!-- Sección Nosotros -->
-    <section id="nosotros" class="py-5">
+    <section id="nosotros" class="py-5 bg-light">
         <div class="container">
-            <h2 class="text-center fw-bold section-title" data-aos="fade-up">Nuestra Historia</h2>
-            <div class="row align-items-center">
-                <div class="col-lg-6 mb-4" data-aos="fade-right">
-                    <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Historia de El Sabrosito" class="img-fluid rounded shadow">
+            <div class="row justify-content-center mb-5">
+                <div class="col-lg-8 text-center">
+                    <h2 class="section-title" data-aos="fade-up">Nuestra Historia</h2>
+                    <p class="lead" data-aos="fade-up" data-aos-delay="100">Tradición y sabor desde 2020</p>
                 </div>
+            </div>
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-4 mb-lg-0 text-center" data-aos="fade-right">
+                    <video width="50%" autoplay muted loop playsinline class="rounded shadow-lg hover-shadow">
+                        <source src="img/v2.mp4" type="video/mp4">
+                    </video>
+                </div>
+                
+                
                 <div class="col-lg-6" data-aos="fade-left" data-aos-delay="200">
-                    <h3 class="fw-bold mb-3">5 años en el mercado gastronomico</h3>
-                    <p>Fundado en 2020, "El Sabrosito" comenzó como un pequeño negocio familiar dedicado a compartir los auténticos sabores de la cocina peruana. 
-                        Lo que inició como un modesto local en el corazón de la ciudad, hoy se ha convertido en un referente gastronómico de la zona.</p>
-                    <p>Nuestro compromiso con la calidad y el sabor auténtico nos ha permitido crecer manteniendo siempre la esencia casera que nos caracteriza. 
-                        Cada platillo que servimos lleva el amor y la dedicación de nuestra familia a la suya.</p>
+                    <h3 class="fw-bold mb-4">5 años en el mercado gastronómico</h3>
+                    <p class="mb-4 text-justify">
+                        Fundado en 2020, "El Sabrosito" comenzó como un pequeño negocio familiar dedicado a compartir los auténticos sabores de la cocina peruana. Lo que inició como un modesto local en el corazón de la ciudad, hoy se ha convertido en un referente gastronómico de la zona.
+                      </p>
+                      
+                    <p class="mb-4">Nuestro compromiso con la calidad y el sabor auténtico nos ha permitido crecer manteniendo siempre la esencia casera que nos caracteriza. Cada platillo que servimos lleva el amor y la dedicación de nuestra familia a la suya.</p>
+                    <div class="d-flex align-items-center mt-4">
+                        <div class="me-4">
+                            <h4 class="text-primary mb-0">50+</h4>
+                            <p class="mb-0">Platos tradicionales</p>
+                        </div>
+                        <div class="me-4">
+                            <h4 class="text-primary mb-0">1000+</h4>
+                            <p class="mb-0">Clientes satisfechos</p>
+                        </div>
+                        <div>
+                            <h4 class="text-primary mb-0">5</h4>
+                            <p class="mb-0">Años de experiencia</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Sección Misión y Visión -->
-    <section class="py-5 bg-light">
+    <section class="py-5">
         <div class="container">
-            <h2 class="text-center fw-bold section-title" data-aos="fade-up">Nuestra Filosofía</h2>
+            <div class="row justify-content-center mb-5">
+                <div class="col-lg-8 text-center">
+                    <h2 class="section-title" data-aos="fade-up">Nuestra Filosofía</h2>
+                    <p class="lead" data-aos="fade-up" data-aos-delay="100">Lo que nos guía cada día</p>
+                </div>
+            </div>
             <div class="row">
                 <div class="col-md-6 mb-4" data-aos="fade-up" data-aos-delay="100">
-                    <div class="card h-100 card-hover">
-                        <div class="card-body text-center p-4">
-                            <i class="fas fa-bullseye value-icon"></i>
-                            <h3 class="card-title">Misión</h3>
+                    <div class="card h-100 card-hover border-0">
+                        <div class="card-body text-center p-5">
+                            <i class="fas fa-bullseye value-icon mb-4"></i>
+                            <h3 class="card-title mb-3">Misión</h3>
                             <p class="card-text">Ofrecer a nuestros clientes una experiencia gastronómica memorable, basada en la calidad de nuestros platos, la atención personalizada y un ambiente acogedor, comprometidos siempre con la satisfacción y el bienestar de quienes nos eligen.</p>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-6 mb-4" data-aos="fade-up" data-aos-delay="300">
-                    <div class="card h-100 card-hover">
-                        <div class="card-body text-center p-4">
-                            <i class="fas fa-eye value-icon"></i>
-                            <h3 class="card-title">Visión</h3>
+                    <div class="card h-100 card-hover border-0">
+                        <div class="card-body text-center p-5">
+                            <i class="fas fa-eye value-icon mb-4"></i>
+                            <h3 class="card-title mb-3">Visión</h3>
                             <p class="card-text">Ser el restaurante de preferencia en la zona, reconocido por la excelencia de nuestra cocina, la calidez en el servicio y por consolidarnos como una empresa sólida, confiable y en constante crecimiento en el sector gastronómico.</p>
                         </div>
                     </div>
@@ -280,49 +668,54 @@
     </section>
 
     <!-- Sección Valores -->
-    <section id="valores" class="py-5">
+    <section id="valores" class="py-5 bg-light">
         <div class="container">
-            <h2 class="text-center fw-bold section-title" data-aos="fade-up">Nuestros Valores</h2>
+            <div class="row justify-content-center mb-5">
+                <div class="col-lg-8 text-center">
+                    <h2 class="section-title" data-aos="fade-up">Nuestros Valores</h2>
+                    <p class="lead" data-aos="fade-up" data-aos-delay="100">Principios que definen nuestro trabajo</p>
+                </div>
+            </div>
             <div class="row">
                 <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="100">
-                    <div class="card h-100 card-hover text-center p-3">
+                    <div class="card h-100 card-hover border-0 text-center p-4">
                         <i class="fas fa-award value-icon"></i>
-                        <h4>Calidad</h4>
+                        <h4 class="my-3">Calidad</h4>
                         <p>Nos esforzamos por ofrecer siempre ingredientes frescos y platos cuidadosamente preparados que superen las expectativas de nuestros clientes.</p>
                     </div>
                 </div>
                 <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="200">
-                    <div class="card h-100 card-hover text-center p-3">
+                    <div class="card h-100 card-hover border-0 text-center p-4">
                         <i class="fas fa-handshake value-icon"></i>
-                        <h4>Compromiso</h4>
+                        <h4 class="my-3">Compromiso</h4>
                         <p>Cumplimos con lo que prometemos, trabajando con responsabilidad y dedicación en cada detalle del servicio.</p>
                     </div>
                 </div>
                 <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="300">
-                    <div class="card h-100 card-hover text-center p-3">
+                    <div class="card h-100 card-hover border-0 text-center p-4">
                         <i class="fas fa-heart value-icon"></i>
-                        <h4>Pasión por el servicio</h4>
+                        <h4 class="my-3">Pasión</h4>
                         <p>Disfrutamos lo que hacemos y eso se refleja en la atención cálida y amable que brindamos a cada persona que nos visita.</p>
                     </div>
                 </div>
                 <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="100">
-                    <div class="card h-100 card-hover text-center p-3">
+                    <div class="card h-100 card-hover border-0 text-center p-4">
                         <i class="fas fa-balance-scale value-icon"></i>
-                        <h4>Honestidad</h4>
+                        <h4 class="my-3">Honestidad</h4>
                         <p>Actuamos con transparencia y rectitud en todas nuestras acciones, manteniendo la confianza de nuestros clientes y colaboradores.</p>
                     </div>
                 </div>
                 <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="200">
-                    <div class="card h-100 card-hover text-center p-3">
+                    <div class="card h-100 card-hover border-0 text-center p-4">
                         <i class="fas fa-users value-icon"></i>
-                        <h4>Trabajo en equipo</h4>
+                        <h4 class="my-3">Trabajo en equipo</h4>
                         <p>Creemos en la colaboración y el respeto mutuo como base para lograr un ambiente laboral armonioso y productivo.</p>
                     </div>
                 </div>
                 <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="300">
-                    <div class="card h-100 card-hover text-center p-3">
+                    <div class="card h-100 card-hover border-0 text-center p-4">
                         <i class="fas fa-hands-helping value-icon"></i>
-                        <h4>Respeto</h4>
+                        <h4 class="my-3">Respeto</h4>
                         <p>Valoramos a cada cliente, proveedor y miembro del equipo, fomentando relaciones basadas en la cortesía y la empatía.</p>
                     </div>
                 </div>
@@ -330,105 +723,115 @@
         </div>
     </section>
 
-    <!-- Sección Organigrama -->
-    <section id="equipo" class="py-5 bg-light">
+    <!-- Sección Equipo -->
+    <!-- <section id="equipo" class="py-5">
         <div class="container">
-            <h2 class="text-center fw-bold section-title" data-aos="fade-up">Nuestro Equipo</h2>
-            <div class="row justify-content-center">
-                <div class="col-md-3 mb-4" data-aos="zoom-in" data-aos-delay="100">
+            <div class="row justify-content-center mb-5">
+                <div class="col-lg-8 text-center">
+                    <h2 class="section-title" data-aos="fade-up">Nuestro Equipo</h2>
+                    <p class="lead" data-aos="fade-up" data-aos-delay="100">Los talentos detrás de nuestra cocina</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 col-lg-3 mb-4" data-aos="zoom-in" data-aos-delay="100">
                     <div class="card team-card h-100">
                         <img src="https://randomuser.me/api/portraits/men/32.jpg" class="card-img-top" alt="Chef Principal">
-                        <div class="card-body text-center">
-                            <h5 class="card-title">Juan</h5>
-                            <p class="card-text text-muted">Jefe-Dueño</p>
-                            <p class="small">25 años de experiencia en cocina tradicional peruana</p>
+                        <div class="card-body">
+                            <h5 class="card-title">Juan Pérez</h5>
+                            <p class="position text-primary">Jefe-Dueño</p>
+                            <p class="bio">25 años de experiencia en cocina tradicional peruana. Especialista en sabores auténticos y técnicas tradicionales.</p>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-3 mb-4" data-aos="zoom-in" data-aos-delay="200">
+                <div class="col-md-6 col-lg-3 mb-4" data-aos="zoom-in" data-aos-delay="200">
                     <div class="card team-card h-100">
                         <img src="https://randomuser.me/api/portraits/women/44.jpg" class="card-img-top" alt="Subchef">
-                        <div class="card-body text-center">
+                        <div class="card-body">
                             <h5 class="card-title">María Gómez</h5>
-                            <p class="card-text text-muted">Cocinero</p>
-                            <p class="small">Especialista en menestras y platos tradicionales</p>
+                            <p class="position text-primary">Cocinero</p>
+                            <p class="bio">Especialista en menestras y platos tradicionales. 15 años perfeccionando los sabores de la cocina peruana.</p>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-3 mb-4" data-aos="zoom-in" data-aos-delay="300">
+                <div class="col-md-6 col-lg-3 mb-4" data-aos="zoom-in" data-aos-delay="300">
                     <div class="card team-card h-100">
                         <img src="https://randomuser.me/api/portraits/men/75.jpg" class="card-img-top" alt="Gerente">
-                        <div class="card-body text-center">
+                        <div class="card-body">
                             <h5 class="card-title">Carlos Rodríguez</h5>
-                            <p class="card-text text-muted">Ayudante de Cocina</p>
-                            <p class="small">Administración de restaurantes por 15 años</p>
+                            <p class="position text-primary">Ayudante de Cocina</p>
+                            <p class="bio">Experto en preparación de ingredientes y apoyo en cocina. Siempre con una sonrisa y disposición para ayudar.</p>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-3 mb-4" data-aos="zoom-in" data-aos-delay="400">
+                <div class="col-md-6 col-lg-3 mb-4" data-aos="zoom-in" data-aos-delay="400">
                     <div class="card team-card h-100">
                         <img src="https://randomuser.me/api/portraits/women/68.jpg" class="card-img-top" alt="Atención al cliente">
-                        <div class="card-body text-center">
+                        <div class="card-body">
                             <h5 class="card-title">Lucía Fernández</h5>
-                            <p class="card-text text-muted">Lavavajillas</p>
-                            <p class="small">10 años garantizando la mejor experiencia al cliente</p>
+                            <p class="position text-primary">Lavavajillas</p>
+                            <p class="bio">Garantiza que cada plato y utensilio esté impecable para ofrecer la mejor experiencia a nuestros clientes.</p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
 
     <!-- Sección Menú -->
-    <section id="menu" class="py-5">
+    <section id="menu" class="py-5 bg-light">
         <div class="container">
-            <h2 class="text-center fw-bold section-title" data-aos="fade-up">Nuestro Menú</h2>
-            <p class="text-center mb-5" data-aos="fade-up" data-aos-delay="100">Descubre nuestra variada y deliciosa oferta culinaria</p>
+            <div class="row justify-content-center mb-5">
+                <div class="col-lg-8 text-center">
+                    <h2 class="section-title" data-aos="fade-up">Nuestro Menú</h2>
+                    <p class="lead" data-aos="fade-up" data-aos-delay="100">Descubre nuestra variada y deliciosa oferta culinaria</p>
+                </div>
+            </div>
             
             <div class="row">
                 <!-- Almuerzos Tradicionales -->
-                <div class="col-md-4">
-                    <h3 class="fw-bold mb-4 text-center" data-aos="fade-up">Almuerzos Tradicionales</h3>
-                    <div class="card mb-3 card-hover menu-item" data-aos="fade-up" data-aos-delay="100">
+                <div class="col-lg-4 mb-5">
+                    <h3 class="menu-category-title" data-aos="fade-up">Almuerzos Tradicionales</h3>
+                    
+                    <div class="card menu-item border-0 mb-3" data-aos="fade-up" data-aos-delay="100">
                         <div class="row g-0">
-                            <div class="col-md-4">
-                                <img src="https://images.unsplash.com/photo-1544025162-d76694265947?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" class="img-fluid rounded-start h-100" alt="Lomo Saltado">
+                            <div class="col-md-5">
+                                <img src="img/lomo.jpg" class="img-fluid rounded-start h-100" alt="Lomo Saltado">
                             </div>
-                            <div class="col-md-8">
+                            <div class="col-md-7">
                                 <div class="card-body">
                                     <h5 class="card-title">Lomo Saltado</h5>
                                     <p class="card-text">Tradicional plato peruano con carne, arroz y papas fritas.</p>
-                                    <p class="card-text"><small class="text-muted">S/ 19.00</small></p>
+                                    <p class="price">S/ 19.00</p>
                                 </div>
                             </div>
                         </div>
                     </div>
                     
-                    <div class="card mb-3 card-hover menu-item" data-aos="fade-up" data-aos-delay="200">
+                    <div class="card menu-item border-0 mb-3" data-aos="fade-up" data-aos-delay="200">
                         <div class="row g-0">
-                            <div class="col-md-4">
-                                <img src="https://images.unsplash.com/photo-1603360946369-dc9bb6258143?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" class="img-fluid rounded-start h-100" alt="Chuleta de Chancho">
+                            <div class="col-md-5">
+                                <img src="img/chuleta.jpeg" class="img-fluid rounded-start h-100" alt="Chuleta de Chancho">
                             </div>
-                            <div class="col-md-8">
+                            <div class="col-md-7">
                                 <div class="card-body">
                                     <h5 class="card-title">Chuleta de Chancho</h5>
                                     <p class="card-text">Chuleta de cerdo con papas, arroz y ensalada fresca.</p>
-                                    <p class="card-text"><small class="text-muted">S/ 15.00</small></p>
+                                    <p class="price">S/ 15.00</p>
                                 </div>
                             </div>
                         </div>
                     </div>
                     
-                    <div class="card mb-3 card-hover menu-item" data-aos="fade-up" data-aos-delay="300">
+                    <div class="card menu-item border-0 mb-3" data-aos="fade-up" data-aos-delay="300">
                         <div class="row g-0">
-                            <div class="col-md-4">
-                                <img src="https://images.unsplash.com/photo-1551504734-5ee1c4a1479b?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" class="img-fluid rounded-start h-100" alt="Pollo a la Plancha">
+                            <div class="col-md-5">
+                                <img src="img/polloalaplancha.jpg" class="img-fluid rounded-start h-100" alt="Pollo a la Plancha">
                             </div>
-                            <div class="col-md-8">
+                            <div class="col-md-7">
                                 <div class="card-body">
                                     <h5 class="card-title">Pollo a la Plancha</h5>
                                     <p class="card-text">Pollo a la plancha con papas, arroz y ensalada.</p>
-                                    <p class="card-text"><small class="text-muted">S/ 19.00</small></p>
+                                    <p class="price">S/ 19.00</p>
                                 </div>
                             </div>
                         </div>
@@ -436,48 +839,49 @@
                 </div>
                 
                 <!-- Delicias del Mar -->
-                <div class="col-md-4">
-                    <h3 class="fw-bold mb-4 text-center" data-aos="fade-up">Delicias del Mar</h3>
-                    <div class="card mb-3 card-hover menu-item" data-aos="fade-up" data-aos-delay="100">
+                <div class="col-lg-4 mb-5">
+                    <h3 class="menu-category-title" data-aos="fade-up">Delicias del Mar</h3>
+                    
+                    <div class="card menu-item border-0 mb-3" data-aos="fade-up" data-aos-delay="100">
                         <div class="row g-0">
-                            <div class="col-md-4">
-                                <img src="https://images.unsplash.com/photo-1551504734-5ee1c4a1479b?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" class="img-fluid rounded-start h-100" alt="Ceviche de Filete">
+                            <div class="col-md-5">
+                                <img src="img/ceviche.jpeg" class="img-fluid rounded-start h-100" alt="Ceviche de Filete">
                             </div>
-                            <div class="col-md-8">
+                            <div class="col-md-7">
                                 <div class="card-body">
                                     <h5 class="card-title">Ceviche de Filete</h5>
-                                    <p class="card-text">Fresco ceviche de filete de pescado. (S/30, S/35, S/40 según tamaño)</p>
-                                    <p class="card-text"><small class="text-muted">Desde S/ 30.00</small></p>
+                                    <p class="card-text">Fresco ceviche de filete de pescado.</p>
+                                    <p class="price">Desde S/ 30.00</p>
                                 </div>
                             </div>
                         </div>
                     </div>
                     
-                    <div class="card mb-3 card-hover menu-item" data-aos="fade-up" data-aos-delay="200">
+                    <div class="card menu-item border-0 mb-3" data-aos="fade-up" data-aos-delay="200">
                         <div class="row g-0">
-                            <div class="col-md-4">
-                                <img src="https://images.unsplash.com/photo-1604329760661-e71dc83f8f26?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" class="img-fluid rounded-start h-100" alt="Ceviche Mixto">
+                            <div class="col-md-5">
+                                <img src="img/mixto.jpg" class="img-fluid rounded-start h-100" alt="Ceviche Mixto">
                             </div>
-                            <div class="col-md-8">
+                            <div class="col-md-7">
                                 <div class="card-body">
                                     <h5 class="card-title">Ceviche Mixto</h5>
-                                    <p class="card-text">Ceviche con variedad de mariscos y pescado. (S/35, S/40, S/45 según tamaño)</p>
-                                    <p class="card-text"><small class="text-muted">Desde S/ 35.00</small></p>
+                                    <p class="card-text">Ceviche con variedad de mariscos y pescado.</p>
+                                    <p class="price">Desde S/ 35.00</p>
                                 </div>
                             </div>
                         </div>
                     </div>
                     
-                    <div class="card mb-3 card-hover menu-item" data-aos="fade-up" data-aos-delay="300">
+                    <div class="card menu-item border-0 mb-3" data-aos="fade-up" data-aos-delay="300">
                         <div class="row g-0">
-                            <div class="col-md-4">
-                                <img src="https://images.unsplash.com/photo-1601050690597-df0568f70950?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" class="img-fluid rounded-start h-100" alt="Sudado de Cabrilla">
+                            <div class="col-md-5">
+                                <img src="img/sudado.jpg" class="img-fluid rounded-start h-100" alt="Sudado de Cabrilla">
                             </div>
-                            <div class="col-md-8">
+                            <div class="col-md-7">
                                 <div class="card-body">
                                     <h5 class="card-title">Sudado de Cabrilla</h5>
-                                    <p class="card-text">Delicioso sudado de cabrilla con especias. (S/25, S/35 según tamaño)</p>
-                                    <p class="card-text"><small class="text-muted">Desde S/ 25.00</small></p>
+                                    <p class="card-text">Delicioso sudado de cabrilla con especias.</p>
+                                    <p class="price">Desde S/ 25.00</p>
                                 </div>
                             </div>
                         </div>
@@ -485,108 +889,376 @@
                 </div>
                 
                 <!-- Pollería y Bebidas -->
-                <div class="col-md-4">
-                    <h3 class="fw-bold mb-4 text-center" data-aos="fade-up">Pollo a la Brasa</h3>
-                    <div class="card mb-3 card-hover menu-item" data-aos="fade-up" data-aos-delay="100">
+                <div class="col-lg-4">
+                    <h3 class="menu-category-title" data-aos="fade-up">Pollo a la Brasa</h3>
+                    
+                    <div class="card menu-item border-0 mb-3" data-aos="fade-up" data-aos-delay="100">
                         <div class="row g-0">
-                            <div class="col-md-4">
-                                <img src="https://images.unsplash.com/photo-1603360946369-dc9bb6258143?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" class="img-fluid rounded-start h-100" alt="Pollo a la Brasa">
+                            <div class="col-md-5">
+                                <img src="img/polloentero.jpg" class="img-fluid rounded-start h-100" alt="Pollo a la Brasa">
                             </div>
-                            <div class="col-md-8">
+                            <div class="col-md-7">
                                 <div class="card-body">
                                     <h5 class="card-title">Pollo Entero a la Brasa</h5>
                                     <p class="card-text">Nuestro famoso pollo a la brasa, crujiente y jugoso.</p>
-                                    <p class="card-text"><small class="text-muted">S/ 60.00</small></p>
+                                    <p class="price">S/ 60.00</p>
                                 </div>
                             </div>
                         </div>
                     </div>
                     
-                    <div class="card mb-3 card-hover menu-item" data-aos="fade-up" data-aos-delay="200">
+                    <div class="card menu-item border-0 mb-3" data-aos="fade-up" data-aos-delay="200">
                         <div class="row g-0">
-                            <div class="col-md-4">
-                                <img src="img/pollo.jpg" class="img-fluid rounded-start h-100" alt="1/2 Pollo">
+                            <div class="col-md-5">
+                                <img src="img/medio.jpg" class="img-fluid rounded-start h-70" alt="1/2 Pollo">
                             </div>
-                            <div class="col-md-8">
+                            <div class="col-md-7">
                                 <div class="card-body">
                                     <h5 class="card-title">1/2 Pollo a la Brasa</h5>
                                     <p class="card-text">Media porción de nuestro pollo a la brasa.</p>
-                                    <p class="card-text"><small class="text-muted">S/ 30.00</small></p>
+                                    <p class="price">S/ 30.00</p>
                                 </div>
                             </div>
                         </div>
                     </div>
                     
-                    <h3 class="fw-bold mb-4 text-center mt-4" data-aos="fade-up">Bebidas</h3>
-                    <ul class="list-group">
-                        <li class="list-group-item d-flex justify-content-between align-items-center menu-item" data-aos="fade-up" data-aos-delay="100">
-                            Inca Kola 500ml
+                    <h3 class="menu-category-title mt-5" data-aos="fade-up">Bebidas</h3>
+                    <div class="list-group" data-aos="fade-up" data-aos-delay="100">
+                        <div class="list-group-item border-0 d-flex justify-content-between align-items-center py-3">
+                            <span>Inca Kola 500ml</span>
                             <span class="badge bg-primary rounded-pill">S/ 4.00</span>
-                        </li>
-                        <li class="list-group-item d-flex justify-content-between align-items-center menu-item" data-aos="fade-up" data-aos-delay="150">
-                            Coca Cola 500ml
+                        </div>
+                        <div class="list-group-item border-0 d-flex justify-content-between align-items-center py-3">
+                            <span>Coca Cola 500ml</span>
                             <span class="badge bg-primary rounded-pill">S/ 4.00</span>
-                        </li>
-                        <li class="list-group-item d-flex justify-content-between align-items-center menu-item" data-aos="fade-up" data-aos-delay="200">
-                            Cerveza Cristal
+                        </div>
+                        <div class="list-group-item border-0 d-flex justify-content-between align-items-center py-3">
+                            <span>Cerveza Cristal</span>
                             <span class="badge bg-primary rounded-pill">S/ 8.50</span>
-                        </li>
-                    </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
             
             <div class="text-center mt-4" data-aos="fade-up">
-                <a href="#" class="btn btn-primary btn-lg">Ver Menú Completo</a>
+                <button class="btn btn-view-menu" data-bs-toggle="modal" data-bs-target="#menuModal">
+                    Ver Carta Completa
+                </button>
+                
             </div>
         </div>
     </section>
 
-    <!-- Sección Contacto -->
-    <section id="contacto" class="py-5 bg-light">
+ <!-- Modal del Menú Completo -->
+<!-- Modal del Menú Completo -->
+<div class="modal fade" id="menuModal" tabindex="-1" aria-labelledby="menuModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="menuModalLabel"><i class="fas fa-utensils me-2"></i>Carta Completa - El Sabrosito</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <!-- ALMUERZOS TRADICIONALES -->
+                        <h4 class="text-primary mb-4"><i class="fas fa-drumstick-bite me-2"></i>Almuerzos Tradicionales</h4>
+                        <ul class="list-group list-group-flush mb-4">
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                Lomo saltado
+                                <span class="badge bg-primary rounded-pill">S/ 19.00</span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                Chuleta de chancho (papas, arroz, ensalada)
+                                <span class="badge bg-primary rounded-pill">S/ 15.00</span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                Chuleta de Res (papas, arroz, ensalada)
+                                <span class="badge bg-primary rounded-pill">S/ 15.00</span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                Cachema encebollada
+                                <span class="badge bg-primary rounded-pill">S/ 15.00</span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                Mondonguito
+                                <span class="badge bg-primary rounded-pill">S/ 12.00</span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                Pollo a la plancha (papas, arroz, ensalada)
+                                <span class="badge bg-primary rounded-pill">S/ 19.00</span>
+                            </li>
+                        </ul>
+
+                        <!-- DELICIAS DEL MAR -->
+                        <h4 class="text-primary mb-4"><i class="fas fa-fish me-2"></i>Delicias del Mar</h4>
+                        <ul class="list-group list-group-flush mb-4">
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                Ceviche de filete
+                                <div>
+                                    <span class="badge bg-primary rounded-pill me-1">S/ 30.00</span>
+                                    <span class="badge bg-primary rounded-pill me-1">S/ 35.00</span>
+                                    <span class="badge bg-primary rounded-pill">S/ 40.00</span>
+                                </div>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                Ceviche de caballa
+                                <div>
+                                    <span class="badge bg-primary rounded-pill me-1">S/ 25.00</span>
+                                    <span class="badge bg-primary rounded-pill me-1">S/ 30.00</span>
+                                    <span class="badge bg-primary rounded-pill">S/ 35.00</span>
+                                </div>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                Ceviche Mixto
+                                <div>
+                                    <span class="badge bg-primary rounded-pill me-1">S/ 35.00</span>
+                                    <span class="badge bg-primary rounded-pill me-1">S/ 40.00</span>
+                                    <span class="badge bg-primary rounded-pill">S/ 45.00</span>
+                                </div>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                Sudado de Cabrilla
+                                <div>
+                                    <span class="badge bg-primary rounded-pill me-1">S/ 25.00</span>
+                                    <span class="badge bg-primary rounded-pill">S/ 35.00</span>
+                                </div>
+                            </li>
+                        </ul>
+
+                        <!-- MENÚ DEL DÍA -->
+                        <h4 class="text-primary mb-4"><i class="fas fa-calendar-day me-2"></i>Menú del Día</h4>
+                        <ul class="list-group list-group-flush mb-4">
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                Arroz Tapado
+                                <div>
+                                    <span class="badge bg-primary rounded-pill me-1">S/ 10.00</span>
+                                    <span class="badge bg-primary rounded-pill">S/ 12.00</span>
+                                </div>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                Chuleta de Chancho
+                                <span class="badge bg-primary rounded-pill">S/ 12.00</span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                Estofado de Res
+                                <span class="badge bg-primary rounded-pill">S/ 12.00</span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                Cachema frita
+                                <span class="badge bg-primary rounded-pill">S/ 10.00</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="col-md-6">
+                        <!-- SABORES TRADICIONALES -->
+                        <h4 class="text-primary mb-4"><i class="fas fa-home me-2"></i>Sabores Tradicionales</h4>
+                        <ul class="list-group list-group-flush mb-4">
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                Chicharrón de pescado
+                                <div>
+                                    <span class="badge bg-primary rounded-pill me-1">S/ 30.00</span>
+                                    <span class="badge bg-primary rounded-pill me-1">S/ 35.00</span>
+                                    <span class="badge bg-primary rounded-pill">S/ 40.00</span>
+                                </div>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                Chicharrón de pollo
+                                <div>
+                                    <span class="badge bg-primary rounded-pill me-1">S/ 20.00</span>
+                                    <span class="badge bg-primary rounded-pill me-1">S/ 30.00</span>
+                                    <span class="badge bg-primary rounded-pill">S/ 35.00</span>
+                                </div>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                Ronda Criolla
+                                <div>
+                                    <span class="badge bg-primary rounded-pill me-1">S/ 60.00</span>
+                                    <span class="badge bg-primary rounded-pill">S/ 65.00</span>
+                                </div>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                Ronda Marina
+                                <div>
+                                    <span class="badge bg-primary rounded-pill me-1">S/ 60.00</span>
+                                    <span class="badge bg-primary rounded-pill">S/ 65.00</span>
+                                </div>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                Costillas de chancho
+                                <div>
+                                    <span class="badge bg-primary rounded-pill me-1">S/ 30.00</span>
+                                    <span class="badge bg-primary rounded-pill me-1">S/ 35.00</span>
+                                    <span class="badge bg-primary rounded-pill">S/ 40.00</span>
+                                </div>
+                            </li>
+                        </ul>
+
+                        <!-- A LA BRASA -->
+                        <h4 class="text-primary mb-4"><i class="fas fa-fire me-2"></i>A la Brasa y Más</h4>
+                        <ul class="list-group list-group-flush mb-4">
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                Pollo entero a la Brasa
+                                <span class="badge bg-primary rounded-pill">S/ 60.00</span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                1/2 Pollo a la Brasa
+                                <span class="badge bg-primary rounded-pill">S/ 30.00</span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                1/4 Pollo a la Brasa
+                                <span class="badge bg-primary rounded-pill">S/ 20.00</span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                1/8 Pollo a la brasa
+                                <span class="badge bg-primary rounded-pill">S/ 13.00</span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                Mostrito
+                                <span class="badge bg-primary rounded-pill">S/ 13.00</span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                2 alitas broaster
+                                <span class="badge bg-primary rounded-pill">S/ 15.00</span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                Mollejitas
+                                <span class="badge bg-primary rounded-pill">S/ 15.00</span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                Salchipapa
+                                <span class="badge bg-primary rounded-pill">S/ 9.00</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- ADICIONALES Y BEBIDAS -->
+                <div class="row mt-3">
+                    <div class="col-md-6">
+                        <h4 class="text-primary mb-4"><i class="fas fa-plus-circle me-2"></i>Adicionales</h4>
+                        <ul class="list-group list-group-flush mb-4">
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                Menestras (Alverja/Frejol Bayo/Lenteja)
+                                <span class="badge bg-primary rounded-pill">S/ 3.00</span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                Chorizo
+                                <span class="badge bg-primary rounded-pill">S/ 2.00</span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                Huevo
+                                <span class="badge bg-primary rounded-pill">S/ 2.00</span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                Fídeos Verdes
+                                <span class="badge bg-primary rounded-pill">S/ 2.00</span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                Plátano frito
+                                <span class="badge bg-primary rounded-pill">S/ 2.00</span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                Vaso adicional
+                                <span class="badge bg-primary rounded-pill">S/ 1.00</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="col-md-6">
+                        <h4 class="text-primary mb-4"><i class="fas fa-glass-whiskey me-2"></i>Bebidas</h4>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                Agua Cielo
+                                <span class="badge bg-primary rounded-pill">S/ 2.00</span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                Agua San Luis
+                                <span class="badge bg-primary rounded-pill">S/ 2.50</span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                Gaseosa Gordita
+                                <span class="badge bg-primary rounded-pill">S/ 5.00</span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                Inca Kola 500ml
+                                <span class="badge bg-primary rounded-pill">S/ 4.00</span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                Cerveza Cristal
+                                <span class="badge bg-primary rounded-pill">S/ 8.50</span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                1/2 Jarra de Maracuyá/manzana
+                                <span class="badge bg-primary rounded-pill">S/ 5.00</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Cerrar</button>
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Incluir Font Awesome para los iconos -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+
+    <section id="contacto" class="py-5">
         <div class="container">
-            <h2 class="text-center fw-bold section-title" data-aos="fade-up">Contáctanos</h2>
+            <div class="row justify-content-center mb-5">
+                <div class="col-lg-8 text-center">
+                    <h2 class="section-title" data-aos="fade-up">Contáctanos</h2>
+                    <p class="lead" data-aos="fade-up" data-aos-delay="100">Estamos aquí para atenderte</p>
+                </div>
+            </div>
             <div class="row">
-                <div class="col-lg-6 mb-4" data-aos="fade-right">
-                    <div class="card h-100">
-                        <div class="card-body">
-                            <h4 class="card-title"><i class="fas fa-map-marker-alt me-2"></i> Nuestra Ubicación</h4>
-                            <p class="card-text">Av. Sultana 298, Al Costado de la clínica Los Cocos</p>
+                <div class="col-lg-6 mb-5 mb-lg-0" data-aos="fade-right">
+                    <div class="card border-0 h-100">
+                        <div class="card-body p-4 p-lg-5">
+                            <h4 class="mb-4"><i class="fas fa-map-marker-alt me-2"></i> Nuestra Ubicación</h4>
+                            <p class="mb-4">Av. Sultana 298, Al Costado de la clínica Los Cocos</p>
                             
-                            <div class="map-container mt-4">
+                            <div class="map-container mt-4 mb-4 rounded overflow-hidden">
                                 <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d254298.85159110551!2d-80.7328965!3d-5.1965546!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x904a1151bf728563%3A0x74fb6dab49d2e068!2sEl%20Sabrosito%20-%20Restaurante!5e0!3m2!1ses-419!2spe!4v1745877956085!5m2!1ses-419!2spe" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
                             </div>
                             
-                            <div class="mt-4">
-                                <h4><i class="fas fa-phone-alt me-2"></i> Teléfono</h4>
-                                <p>913 826 595</p>
+                            <div class="contact-info mt-5">
+                                <h4 class="mb-4"><i class="fas fa-phone-alt me-2"></i> Teléfono</h4>
+                                <p> 913 826 595</p>
                                 
-                                <h4 class="mt-3"><i class="fas fa-envelope me-2"></i> Correo Electrónico</h4>
-                                <p>info@elsabrosito.com</p>
+                                <h4 class="mt-4 mb-3"><i class="fas fa-envelope me-2"></i> Correo Electrónico</h4>
+                                <p> info@elsabrosito.com</p>
                                 
-                                <h4 class="mt-3"><i class="fas fa-clock me-2"></i> Horario de Atención</h4>
-                                <p>Lunes a Domingo: 8:00 AM - 10:00 PM</p>
-                            </div>
-                            
-                            <div class="mt-4">
-                                <h4>Síguenos</h4>
-                                <a href="#" class="me-3 text-dark"><i class="fab fa-facebook-f fa-2x"></i></a>
-                                <a href="#" class="me-3 text-dark"><i class="fab fa-instagram fa-2x"></i></a>
-                                <a href="#" class="me-3 text-dark"><i class="fab fa-whatsapp fa-2x"></i></a>
+                                <h4 class="mt-4 mb-3"><i class="fas fa-clock me-2"></i> Horario de Atención</h4>
+                                <p> Lunes a Domingo: 8:00 AM - 10:00 PM</p>
+                                
+                                <h4 class="mt-4 mb-3"><i class="fas fa-share-alt me-2"></i> Síguenos</h4>
+                                <div class="social-icons">
+                                    <a href="https://www.facebook.com/profile.php?id=100077927851172" class="text-dark"><i class="fab fa-facebook-f"></i></a>
+                                    <a href="https://www.instagram.com/elsabrosito.piura" class="text-dark"><i class="fab fa-instagram"></i></a>
+                                    <a href="https://wa.me/51913826595" class="text-dark"><i class="fab fa-whatsapp"></i></a>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-6" data-aos="fade-left">
-                    <div class="card h-100">
-                        <div class="card-body">
-                            <h4 class="card-title">Formulario de Contacto</h4>
+                    <div class="card border-0 h-100">
+                        <div class="card-body p-4 p-lg-5">
+                            <h4 class="mb-4">Formulario de Contacto</h4>
                             <form>
                                 <div class="mb-3">
-                                    <label for="nombre" class="form-label">Nombre Completo</label>
+                                    <label for="nombre" class="form-label">Nombre Completo *</label>
                                     <input type="text" class="form-control" id="nombre" required>
                                 </div>
                                 <div class="mb-3">
-                                    <label for="email" class="form-label">Correo Electrónico</label>
+                                    <label for="email" class="form-label">Correo Electrónico *</label>
                                     <input type="email" class="form-control" id="email" required>
                                 </div>
                                 <div class="mb-3">
@@ -594,20 +1266,21 @@
                                     <input type="tel" class="form-control" id="telefono">
                                 </div>
                                 <div class="mb-3">
-                                    <label for="asunto" class="form-label">Asunto</label>
-                                    <select class="form-select" id="asunto">
-                                        <option selected>Seleccione una opción</option>
+                                    <label for="asunto" class="form-label">Asunto *</label>
+                                    <select class="form-select" id="asunto" required>
+                                        <option value="" selected disabled>Seleccione una opción</option>
                                         <option>Consulta general</option>
                                         <option>Reserva</option>
                                         <option>Eventos especiales</option>
                                         <option>Quejas o sugerencias</option>
+                                        <option>Trabaja con nosotros</option>
                                     </select>
                                 </div>
-                                <div class="mb-3">
-                                    <label for="mensaje" class="form-label">Mensaje</label>
-                                    <textarea class="form-control" id="mensaje" rows="4" required></textarea>
+                                <div class="mb-4">
+                                    <label for="mensaje" class="form-label">Mensaje *</label>
+                                    <textarea class="form-control" id="mensaje" rows="5" required></textarea>
                                 </div>
-                                <button type="submit" class="btn btn-primary">Enviar Mensaje</button>
+                                <button type="submit" class="btn btn-primary w-100 py-3">Enviar Mensaje</button>
                             </form>
                         </div>
                     </div>
@@ -617,34 +1290,37 @@
     </section>
 
     <!-- Pie de página -->
-    <footer class="bg-dark text-white py-4">
+    <footer>
         <div class="container">
             <div class="row">
-                <div class="col-md-4 mb-3" data-aos="fade-up">
-                    <img src="img/logo.jpg" alt="El Sabrosito" height="50" class="mb-3">
-                    <p>Sabor tradicional peruano </p>
+                <div class="col-lg-4 mb-5 mb-lg-0">
+                    <div class="footer-logo">
+                        <img src="img/logo.jpg" alt="El Sabrosito" height="60">
+                    </div>
+                    <p>Sabor tradicional peruano en cada bocado. Desde 2020 ofreciendo la mejor experiencia gastronómica con ingredientes frescos y recetas auténticas.</p>
+                    <div class="social-icons mt-4">
+                        <a href="https://www.facebook.com/profile.php?id=100077927851172"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/elsabrosito.piura"><i class="fab fa-instagram"></i></a>
+                        <a href="https://wa.me/51913826595"><i class="fab fa-whatsapp"></i></a>
+                    </div>
                 </div>
-                <div class="col-md-4 mb-3" data-aos="fade-up" data-aos-delay="100">
+                <div class="col-lg-4 mb-5 mb-lg-0">
                     <h5>Enlaces Rápidos</h5>
-                    <ul class="list-unstyled">
-                        <li><a href="#" class="text-white">Inicio</a></li>
-                        <li><a href="#nosotros" class="text-white">Nosotros</a></li>
-                        <li><a href="#valores" class="text-white">Valores</a></li>
-                        <li><a href="#menu" class="text-white">Menú</a></li>
-                        <li><a href="#contacto" class="text-white">Contacto</a></li>
-                    </ul>
+                    <a href="#">Inicio</a>
+                    <a href="#nosotros">Nosotros</a>
+                    <a href="#valores">Valores</a>
+                    <a href="#equipo">Equipo</a>
+                    <a href="#menu">Menú</a>
+                    <a href="#contacto">Contacto</a>
                 </div>
-                <div class="col-md-4 mb-3" data-aos="fade-up" data-aos-delay="200">
+                <div class="col-lg-4">
                     <h5>Horario de Atención</h5>
                     <p>Lunes a Domingo<br>8:00 AM - 10:00 PM</p>
-                    <h5 class="mt-3">Síguenos</h5>
-                    <a href="#" class="text-white me-2"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" class="text-white me-2"><i class="fab fa-instagram"></i></a>
-                    <a href="#" class="text-white me-2"><i class="fab fa-whatsapp"></i></a>
+                    
+                   
                 </div>
             </div>
-            <hr>
-            <div class="text-center">
+            <div class="footer-bottom text-center">
                 <p class="mb-0">&copy; 2025 El Sabrosito. Todos los derechos reservados.</p>
                 <p class="small mt-2">Desarrollado por Claudia, Jamil, Frank, Alexander y Angel</p>
             </div>
@@ -654,50 +1330,111 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        // Inicializar AOS (Animate On Scroll)
-        AOS.init({
-            duration: 800,
-            easing: 'ease-in-out',
-            once: true
+       // Inicializar AOS (Animate On Scroll)
+AOS.init({
+    duration: 800,
+    easing: 'ease-in-out',
+    once: true
+});
+
+// Función para el desplazamiento suave
+function smoothScroll(event) {
+    event.preventDefault();
+    
+    // Cerrar navbar mobile si está abierto
+    const navbarCollapse = document.querySelector('.navbar-collapse.show');
+    if (navbarCollapse) {
+        const bsCollapse = new bootstrap.Collapse(navbarCollapse);
+        bsCollapse.hide();
+    }
+    
+    const targetId = this.getAttribute('href');
+    if (targetId === '#') return;
+    
+    const targetElement = document.querySelector(targetId);
+    if (targetElement) {
+        targetElement.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
         });
         
-        // Efecto de desplazamiento suave
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
+        // Actualizar la URL sin recargar la página
+        history.pushState(null, null, targetId);
+    }
+}
+// Función para actualizar los enlaces activos
+function updateActiveNav() {
+    const sections = document.querySelectorAll('section');
+    const navLinks = document.querySelectorAll('.nav-link');
+    
+    let currentSection = '';
+    
+    sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.clientHeight;
         
-        // Cambiar navbar al hacer scroll
-        window.addEventListener('scroll', function() {
-            const navbar = document.querySelector('.navbar');
-            if (window.scrollY > 100) {
-                navbar.classList.add('navbar-scrolled', 'shadow');
-            } else {
-                navbar.classList.remove('navbar-scrolled', 'shadow');
-            }
-        });
+        if (window.scrollY >= sectionTop - 200 && window.scrollY < sectionTop + sectionHeight - 200) {
+            currentSection = section.getAttribute('id');
+        }
+    });
+    
+    navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === `#${currentSection}`) {
+            link.classList.add('active');
+        }
+    });
+}
+
+// Ejecutar al cargar la página y al hacer scroll
+window.addEventListener('load', updateActiveNav);
+window.addEventListener('scroll', updateActiveNav);
+
+// Aplicar el desplazamiento suave a todos los enlaces internos
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    // Excluir el botón de WhatsApp y otros enlaces que no deben tener scroll suave
+    if (!anchor.classList.contains('whatsapp-float')) {
+        anchor.addEventListener('click', smoothScroll);
+    }
+});
+
+// Cambiar navbar al hacer scroll
+window.addEventListener('scroll', function() {
+    const navbar = document.querySelector('.navbar');
+    if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+    } else {
+        navbar.classList.remove('scrolled');
+    }
+});
+
+// Activar tooltips
+const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+tooltipTriggerList.map(function (tooltipTriggerEl) {
+    return new bootstrap.Tooltip(tooltipTriggerEl);
+});
+
+// Validación del formulario
+const form = document.querySelector('form');
+if (form) {
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
         
-        // Animación para los items del menú al aparecer
-        const menuItems = document.querySelectorAll('.menu-item');
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = 1;
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, { threshold: 0.1 });
+        // Validación simple
+        const nombre = document.getElementById('nombre').value;
+        const email = document.getElementById('email').value;
+        const asunto = document.getElementById('asunto').value;
+        const mensaje = document.getElementById('mensaje').value;
         
-        menuItems.forEach(item => {
-            item.style.opacity = 0;
-            item.style.transform = 'translateY(20px)';
-            item.style.transition = 'all 0.5s ease';
-            observer.observe(item);
-        });
+        if (nombre && email && asunto && mensaje) {
+            // Aquí podrías agregar el código para enviar el formulario
+            alert('Gracias por tu mensaje. Nos pondremos en contacto contigo pronto.');
+            form.reset();
+        } else {
+            alert('Por favor complete todos los campos requeridos.');
+        }
+    });
+}
     </script>
 </body>
 </html>
