@@ -534,6 +534,9 @@ background-blend-mode: multiply;
                 height: 200px;
             }
         }
+        #color {
+      background-color: #d35400
+        };
     </style>
 </head>
 <body>
@@ -545,9 +548,7 @@ background-blend-mode: multiply;
     <!-- Barra de navegación -->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container">
-            <a class="navbar-brand" href="#">
-                <img src="img/logo.jpg" alt="El Sabrosito" height="50" width="0" class="img-fluid">
-            </a>
+             <img src="img/logo.jpg" alt="" width="50px" style="display: flex;">
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -585,7 +586,7 @@ background-blend-mode: multiply;
                     <p class="lead mb-5">Experiencia gastronómica peruana con auténtico sabor tradicional</p>
                     <div>
                         <a href="#menu" class="btn btn-primary btn-lg me-3">Ver Menú</a>
-                        <a href="#contacto" class="btn btn-outline-light btn-lg">Reservar</a>
+                        <a href="https://wa.me/51913826595" class="btn btn-outline-light btn-lg">Reservar</a>
                     </div>
                 </div>
             </div>
@@ -603,9 +604,10 @@ background-blend-mode: multiply;
             </div>
             <div class="row align-items-center">
                 <div class="col-lg-6 mb-4 mb-lg-0 text-center" data-aos="fade-right">
-                    <video width="50%" autoplay muted loop playsinline class="rounded shadow-lg hover-shadow">
+                    <video id="miVideo" width="50%" autoplay muted loop playsinline controls class="rounded shadow-lg hover-shadow">
                         <source src="img/v2.mp4" type="video/mp4">
                     </video>
+                    
                 </div>
                 
                 
@@ -618,15 +620,15 @@ background-blend-mode: multiply;
                     <p class="mb-4">Nuestro compromiso con la calidad y el sabor auténtico nos ha permitido crecer manteniendo siempre la esencia casera que nos caracteriza. Cada platillo que servimos lleva el amor y la dedicación de nuestra familia a la suya.</p>
                     <div class="d-flex align-items-center mt-4">
                         <div class="me-4">
-                            <h4 class="text-primary mb-0">50+</h4>
+                            <h4 class="mb-0"style="color:#d35400; ">50+</h4>
                             <p class="mb-0">Platos tradicionales</p>
                         </div>
                         <div class="me-4">
-                            <h4 class="text-primary mb-0">1000+</h4>
+                            <h4 class=" mb-0"style="color:#d35400; ">1000+</h4>
                             <p class="mb-0">Clientes satisfechos</p>
                         </div>
                         <div>
-                            <h4 class="text-primary mb-0">5</h4>
+                            <h4 class=" mb-0"style="color:#d35400; ">5</h4>
                             <p class="mb-0">Años de experiencia</p>
                         </div>
                     </div>
@@ -926,15 +928,15 @@ background-blend-mode: multiply;
                     <div class="list-group" data-aos="fade-up" data-aos-delay="100">
                         <div class="list-group-item border-0 d-flex justify-content-between align-items-center py-3">
                             <span>Inca Kola 500ml</span>
-                            <span class="badge bg-primary rounded-pill">S/ 4.00</span>
+                            <span class="badge  rounded-pill" id="color">S/ 4.00</span>
                         </div>
                         <div class="list-group-item border-0 d-flex justify-content-between align-items-center py-3">
                             <span>Coca Cola 500ml</span>
-                            <span class="badge bg-primary rounded-pill">S/ 4.00</span>
+                            <span class="badge  rounded-pill" id="color">S/ 4.00</span>
                         </div>
                         <div class="list-group-item border-0 d-flex justify-content-between align-items-center py-3">
                             <span>Cerveza Cristal</span>
-                            <span class="badge bg-primary rounded-pill">S/ 8.50</span>
+                            <span class="badge  rounded-pill" id="color">S/ 8.50</span>
                         </div>
                     </div>
                 </div>
@@ -954,181 +956,181 @@ background-blend-mode: multiply;
 <div class="modal fade" id="menuModal" tabindex="-1" aria-labelledby="menuModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-xl modal-dialog-centered">
         <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="menuModalLabel"><i class="fas fa-utensils me-2"></i>Carta Completa - El Sabrosito</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            <div class="modal-header justify-content-center d-flex text-center" style="background-color: #d35400;">
+                <h5 class="modal-title " style="color: white;" id="menuModalLabel"><i class="fas fa-utensils me-2"></i>Carta Completa - El Sabrosito</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body">
+            <div class="modal-body"> 
                 <div class="row">
                     <div class="col-md-6">
                         <!-- ALMUERZOS TRADICIONALES -->
-                        <h4 class="text-primary mb-4"><i class="fas fa-drumstick-bite me-2"></i>Almuerzos Tradicionales</h4>
+                        <h4 class="text-dark mb-4"><i class="fas fa-drumstick-bite me-2"></i>Almuerzos Tradicionales</h4>
                         <ul class="list-group list-group-flush mb-4">
                             <li class="list-group-item d-flex justify-content-between align-items-center">
                                 Lomo saltado
-                                <span class="badge bg-primary rounded-pill">S/ 19.00</span>
+                                <span class="badge  rounded-pill" id="color">S/ 19.00</span>
                             </li>
                             <li class="list-group-item d-flex justify-content-between align-items-center">
                                 Chuleta de chancho (papas, arroz, ensalada)
-                                <span class="badge bg-primary rounded-pill">S/ 15.00</span>
+                                <span class="badge  rounded-pill" id="color">S/ 15.00</span>
                             </li>
                             <li class="list-group-item d-flex justify-content-between align-items-center">
                                 Chuleta de Res (papas, arroz, ensalada)
-                                <span class="badge bg-primary rounded-pill">S/ 15.00</span>
+                                <span class="badge  rounded-pill" id="color">S/ 15.00</span>
                             </li>
                             <li class="list-group-item d-flex justify-content-between align-items-center">
                                 Cachema encebollada
-                                <span class="badge bg-primary rounded-pill">S/ 15.00</span>
+                                <span class="badge  rounded-pill" id="color">S/ 15.00</span>
                             </li>
                             <li class="list-group-item d-flex justify-content-between align-items-center">
                                 Mondonguito
-                                <span class="badge bg-primary rounded-pill">S/ 12.00</span>
+                                <span class="badge  rounded-pill" id="color">S/ 12.00</span>
                             </li>
                             <li class="list-group-item d-flex justify-content-between align-items-center">
                                 Pollo a la plancha (papas, arroz, ensalada)
-                                <span class="badge bg-primary rounded-pill">S/ 19.00</span>
+                                <span class="badge  rounded-pill" id="color">S/ 19.00</span>
                             </li>
                         </ul>
 
                         <!-- DELICIAS DEL MAR -->
-                        <h4 class="text-primary mb-4"><i class="fas fa-fish me-2"></i>Delicias del Mar</h4>
+                        <h4 class="text-dark mb-4"><i class="fas fa-fish me-2"></i>Delicias del Mar</h4>
                         <ul class="list-group list-group-flush mb-4">
                             <li class="list-group-item d-flex justify-content-between align-items-center">
                                 Ceviche de filete
                                 <div>
-                                    <span class="badge bg-primary rounded-pill me-1">S/ 30.00</span>
-                                    <span class="badge bg-primary rounded-pill me-1">S/ 35.00</span>
-                                    <span class="badge bg-primary rounded-pill">S/ 40.00</span>
+                                    <span class="badge  rounded-pill me-1"id="color">S/ 30.00</span>
+                                    <span class="badge  rounded-pill me-1"id="color">S/ 35.00</span>
+                                    <span class="badge  rounded-pill"id="color">S/ 40.00</span>
                                 </div>
                             </li>
                             <li class="list-group-item d-flex justify-content-between align-items-center">
                                 Ceviche de caballa
                                 <div>
-                                    <span class="badge bg-primary rounded-pill me-1">S/ 25.00</span>
-                                    <span class="badge bg-primary rounded-pill me-1">S/ 30.00</span>
-                                    <span class="badge bg-primary rounded-pill">S/ 35.00</span>
+                                    <span class="badge  rounded-pill me-1"id="color">S/ 25.00</span>
+                                    <span class="badge  rounded-pill me-1"id="color">S/ 30.00</span>
+                                    <span class="badge  rounded-pill"id="color">S/ 35.00</span>
                                 </div>
                             </li>
                             <li class="list-group-item d-flex justify-content-between align-items-center">
                                 Ceviche Mixto
                                 <div>
-                                    <span class="badge bg-primary rounded-pill me-1">S/ 35.00</span>
-                                    <span class="badge bg-primary rounded-pill me-1">S/ 40.00</span>
-                                    <span class="badge bg-primary rounded-pill">S/ 45.00</span>
+                                    <span class="badge  rounded-pill me-1" id="color">S/ 35.00</span>
+                                    <span class="badge  rounded-pill me-1" id="color">S/ 40.00</span>
+                                    <span class="badge  rounded-pill" id="color">S/ 45.00</span>
                                 </div>
                             </li>
                             <li class="list-group-item d-flex justify-content-between align-items-center">
                                 Sudado de Cabrilla
                                 <div>
-                                    <span class="badge bg-primary rounded-pill me-1">S/ 25.00</span>
-                                    <span class="badge bg-primary rounded-pill">S/ 35.00</span>
+                                    <span class="badge  rounded-pill me-1" id="color">S/ 25.00</span>
+                                    <span class="badge  rounded-pill" id="color">S/ 35.00</span>
                                 </div>
                             </li>
                         </ul>
 
                         <!-- MENÚ DEL DÍA -->
-                        <h4 class="text-primary mb-4"><i class="fas fa-calendar-day me-2"></i>Menú del Día</h4>
+                        <h4 class="text-dark mb-4"><i class="fas fa-calendar-day me-2"></i>Menú del Día</h4>
                         <ul class="list-group list-group-flush mb-4">
                             <li class="list-group-item d-flex justify-content-between align-items-center">
                                 Arroz Tapado
                                 <div>
-                                    <span class="badge bg-primary rounded-pill me-1">S/ 10.00</span>
-                                    <span class="badge bg-primary rounded-pill">S/ 12.00</span>
+                                    <span class="badge  rounded-pill me-1" id="color">S/ 10.00</span>
+                                    <span class="badge  rounded-pill" id="color">S/ 12.00</span>
                                 </div>
                             </li>
                             <li class="list-group-item d-flex justify-content-between align-items-center">
                                 Chuleta de Chancho
-                                <span class="badge bg-primary rounded-pill">S/ 12.00</span>
+                                <span class="badge  rounded-pill" id="color">S/ 12.00</span>
                             </li>
                             <li class="list-group-item d-flex justify-content-between align-items-center">
                                 Estofado de Res
-                                <span class="badge bg-primary rounded-pill">S/ 12.00</span>
+                                <span class="badge  rounded-pill" id="color">S/ 12.00</span>
                             </li>
                             <li class="list-group-item d-flex justify-content-between align-items-center">
                                 Cachema frita
-                                <span class="badge bg-primary rounded-pill">S/ 10.00</span>
+                                <span class="badge  rounded-pill" id="color">S/ 10.00</span>
                             </li>
                         </ul>
                     </div>
 
                     <div class="col-md-6">
                         <!-- SABORES TRADICIONALES -->
-                        <h4 class="text-primary mb-4"><i class="fas fa-home me-2"></i>Sabores Tradicionales</h4>
+                        <h4 class="text-dark mb-4"><i class="fas fa-home me-2"></i>Sabores Tradicionales</h4>
                         <ul class="list-group list-group-flush mb-4">
                             <li class="list-group-item d-flex justify-content-between align-items-center">
                                 Chicharrón de pescado
                                 <div>
-                                    <span class="badge bg-primary rounded-pill me-1">S/ 30.00</span>
-                                    <span class="badge bg-primary rounded-pill me-1">S/ 35.00</span>
-                                    <span class="badge bg-primary rounded-pill">S/ 40.00</span>
+                                    <span class="badge  rounded-pill me-1" id="color">S/ 30.00</span>
+                                    <span class="badge  rounded-pill me-1" id="color">S/ 35.00</span>
+                                    <span class="badge  rounded-pill" id="color">S/ 40.00</span>
                                 </div>
                             </li>
                             <li class="list-group-item d-flex justify-content-between align-items-center">
                                 Chicharrón de pollo
                                 <div>
-                                    <span class="badge bg-primary rounded-pill me-1">S/ 20.00</span>
-                                    <span class="badge bg-primary rounded-pill me-1">S/ 30.00</span>
-                                    <span class="badge bg-primary rounded-pill">S/ 35.00</span>
+                                    <span class="badge  rounded-pill me-1" id="color">S/ 20.00</span>
+                                    <span class="badge  rounded-pill me-1" id="color">S/ 30.00</span>
+                                    <span class="badge  rounded-pill" id="color">S/ 35.00</span>
                                 </div>
                             </li>
                             <li class="list-group-item d-flex justify-content-between align-items-center">
                                 Ronda Criolla
                                 <div>
-                                    <span class="badge bg-primary rounded-pill me-1">S/ 60.00</span>
-                                    <span class="badge bg-primary rounded-pill">S/ 65.00</span>
+                                    <span class="badge  rounded-pill me-1" id="color">S/ 60.00</span>
+                                    <span class="badge  rounded-pill" id="color">S/ 65.00</span>
                                 </div>
                             </li>
                             <li class="list-group-item d-flex justify-content-between align-items-center">
                                 Ronda Marina
                                 <div>
-                                    <span class="badge bg-primary rounded-pill me-1">S/ 60.00</span>
-                                    <span class="badge bg-primary rounded-pill">S/ 65.00</span>
+                                    <span class="badge  rounded-pill me-1" id="color">S/ 60.00</span>
+                                    <span class="badge  rounded-pill" id="color">S/ 65.00</span>
                                 </div>
                             </li>
                             <li class="list-group-item d-flex justify-content-between align-items-center">
                                 Costillas de chancho
                                 <div>
-                                    <span class="badge bg-primary rounded-pill me-1">S/ 30.00</span>
-                                    <span class="badge bg-primary rounded-pill me-1">S/ 35.00</span>
-                                    <span class="badge bg-primary rounded-pill">S/ 40.00</span>
+                                    <span class="badge  rounded-pill me-1" id="color">S/ 30.00</span>
+                                    <span class="badge  rounded-pill me-1" id="color">S/ 35.00</span>
+                                    <span class="badge  rounded-pill" id="color">S/ 40.00</span>
                                 </div>
                             </li>
                         </ul>
 
                         <!-- A LA BRASA -->
-                        <h4 class="text-primary mb-4"><i class="fas fa-fire me-2"></i>A la Brasa y Más</h4>
+                        <h4 class="text-dark mb-4"><i class="fas fa-fire me-2"></i>A la Brasa y Más</h4>
                         <ul class="list-group list-group-flush mb-4">
                             <li class="list-group-item d-flex justify-content-between align-items-center">
                                 Pollo entero a la Brasa
-                                <span class="badge bg-primary rounded-pill">S/ 60.00</span>
+                                <span class="badge  rounded-pill" id="color">S/ 60.00</span>
                             </li>
                             <li class="list-group-item d-flex justify-content-between align-items-center">
                                 1/2 Pollo a la Brasa
-                                <span class="badge bg-primary rounded-pill">S/ 30.00</span>
+                                <span class="badge  rounded-pill" id="color">S/ 30.00</span>
                             </li>
                             <li class="list-group-item d-flex justify-content-between align-items-center">
                                 1/4 Pollo a la Brasa
-                                <span class="badge bg-primary rounded-pill">S/ 20.00</span>
+                                <span class="badge  rounded-pill" id="color">S/ 20.00</span>
                             </li>
                             <li class="list-group-item d-flex justify-content-between align-items-center">
                                 1/8 Pollo a la brasa
-                                <span class="badge bg-primary rounded-pill">S/ 13.00</span>
+                                <span class="badge  rounded-pill" id="color">S/ 13.00</span>
                             </li>
                             <li class="list-group-item d-flex justify-content-between align-items-center">
                                 Mostrito
-                                <span class="badge bg-primary rounded-pill">S/ 13.00</span>
+                                <span class="badge  rounded-pill" id="color">S/ 13.00</span>
                             </li>
                             <li class="list-group-item d-flex justify-content-between align-items-center">
                                 2 alitas broaster
-                                <span class="badge bg-primary rounded-pill">S/ 15.00</span>
+                                <span class="badge  rounded-pill" id="color">S/ 15.00</span>
                             </li>
                             <li class="list-group-item d-flex justify-content-between align-items-center">
                                 Mollejitas
-                                <span class="badge bg-primary rounded-pill">S/ 15.00</span>
+                                <span class="badge  rounded-pill" id="color">S/ 15.00</span>
                             </li>
                             <li class="list-group-item d-flex justify-content-between align-items-center">
                                 Salchipapa
-                                <span class="badge bg-primary rounded-pill">S/ 9.00</span>
+                                <span class="badge  rounded-pill"id="color">S/ 9.00</span>
                             </li>
                         </ul>
                     </div>
@@ -1137,61 +1139,61 @@ background-blend-mode: multiply;
                 <!-- ADICIONALES Y BEBIDAS -->
                 <div class="row mt-3">
                     <div class="col-md-6">
-                        <h4 class="text-primary mb-4"><i class="fas fa-plus-circle me-2"></i>Adicionales</h4>
+                        <h4 class="text-dark mb-4"><i class="fas fa-plus-circle me-2"></i>Adicionales</h4>
                         <ul class="list-group list-group-flush mb-4">
                             <li class="list-group-item d-flex justify-content-between align-items-center">
                                 Menestras (Alverja/Frejol Bayo/Lenteja)
-                                <span class="badge bg-primary rounded-pill">S/ 3.00</span>
+                                <span class="badge  rounded-pill" id="color">S/ 3.00</span>
                             </li>
                             <li class="list-group-item d-flex justify-content-between align-items-center">
                                 Chorizo
-                                <span class="badge bg-primary rounded-pill">S/ 2.00</span>
+                                <span class="badge  rounded-pill" id="color">S/ 2.00</span>
                             </li>
                             <li class="list-group-item d-flex justify-content-between align-items-center">
                                 Huevo
-                                <span class="badge bg-primary rounded-pill">S/ 2.00</span>
+                                <span class="badge rounded-pill" id="color">S/ 2.00</span>
                             </li>
                             <li class="list-group-item d-flex justify-content-between align-items-center">
                                 Fídeos Verdes
-                                <span class="badge bg-primary rounded-pill">S/ 2.00</span>
+                                <span class="badge  rounded-pill" id="color">S/ 2.00</span>
                             </li>
                             <li class="list-group-item d-flex justify-content-between align-items-center">
                                 Plátano frito
-                                <span class="badge bg-primary rounded-pill">S/ 2.00</span>
+                                <span class="badge  rounded-pill" id="color">S/ 2.00</span>
                             </li>
                             <li class="list-group-item d-flex justify-content-between align-items-center">
                                 Vaso adicional
-                                <span class="badge bg-primary rounded-pill">S/ 1.00</span>
+                                <span class="badge  rounded-pill" id="color">S/ 1.00</span>
                             </li>
                         </ul>
                     </div>
 
-                    <div class="col-md-6">
-                        <h4 class="text-primary mb-4"><i class="fas fa-glass-whiskey me-2"></i>Bebidas</h4>
+                    <div class="col-md-6" >
+                        <h4 class=" mb-4 text-dark"><i class="fas fa-glass-whiskey me-2"></i>Bebidas</h4>
                         <ul class="list-group list-group-flush">
                             <li class="list-group-item d-flex justify-content-between align-items-center">
                                 Agua Cielo
-                                <span class="badge bg-primary rounded-pill">S/ 2.00</span>
+                                <span class="badge bg rounded-pill" id="color" >S/ 2.00</span>
                             </li>
                             <li class="list-group-item d-flex justify-content-between align-items-center">
                                 Agua San Luis
-                                <span class="badge bg-primary rounded-pill">S/ 2.50</span>
+                                <span class="badge  rounded-pill"  id="color">S/ 2.50</span>
                             </li>
                             <li class="list-group-item d-flex justify-content-between align-items-center">
                                 Gaseosa Gordita
-                                <span class="badge bg-primary rounded-pill">S/ 5.00</span>
+                                <span class="badge  rounded-pill" id="color">S/ 5.00</span>
                             </li>
                             <li class="list-group-item d-flex justify-content-between align-items-center">
                                 Inca Kola 500ml
-                                <span class="badge bg-primary rounded-pill">S/ 4.00</span>
+                                <span class="badge rounded-pill" id="color">S/ 4.00</span>
                             </li>
                             <li class="list-group-item d-flex justify-content-between align-items-center">
                                 Cerveza Cristal
-                                <span class="badge bg-primary rounded-pill">S/ 8.50</span>
+                                <span class="badge  rounded-pill" id="color">S/ 8.50</span>
                             </li>
                             <li class="list-group-item d-flex justify-content-between align-items-center">
                                 1/2 Jarra de Maracuyá/manzana
-                                <span class="badge bg-primary rounded-pill">S/ 5.00</span>
+                                <span class="badge  rounded-pill" id="color">S/ 5.00</span>
                             </li>
                         </ul>
                     </div>
@@ -1225,7 +1227,7 @@ background-blend-mode: multiply;
                             <p class="mb-4">Av. Sultana 298, Al Costado de la clínica Los Cocos</p>
                             
                             <div class="map-container mt-4 mb-4 rounded overflow-hidden">
-                                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d254298.85159110551!2d-80.7328965!3d-5.1965546!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x904a1151bf728563%3A0x74fb6dab49d2e068!2sEl%20Sabrosito%20-%20Restaurante!5e0!3m2!1ses-419!2spe!4v1745877956085!5m2!1ses-419!2spe" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                                <iframe src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d3973.435535304444!2d-80.63082235879219!3d-5.194020447787049!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sel%20sabrosito!5e0!3m2!1ses-419!2spe!4v1746571757811!5m2!1ses-419!2spe" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                             </div>
                             
                             <div class="contact-info mt-5">
@@ -1309,7 +1311,6 @@ background-blend-mode: multiply;
                     <a href="#">Inicio</a>
                     <a href="#nosotros">Nosotros</a>
                     <a href="#valores">Valores</a>
-                    <a href="#equipo">Equipo</a>
                     <a href="#menu">Menú</a>
                     <a href="#contacto">Contacto</a>
                 </div>
