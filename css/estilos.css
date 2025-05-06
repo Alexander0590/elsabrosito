@@ -30,7 +30,7 @@ circle at 20% 30%,
 rgba(0, 0, 0, 0) 0%, 
 rgba(0, 0, 0, 0.5) 100%
 ),
-url('img/fondo.PNG') no-repeat center center;
+url('../img/fondo.PNG') no-repeat center center;
 background-size: cover;
 background-blend-mode: multiply;
 min-height: 90vh;
